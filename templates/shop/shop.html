@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    
+    <div class="row py-5">
+        {% if query %}
+        <p class="text-muted text-center py-4">Search results for <span class="text-orange">{{query}}</span></p>
+        {% endif %}
+        {% if products %}
+            {% for product in products %}
+                <div class="col-md-3">
+                    <div href="#" class="card card-product-grid">
+                        <a class="img-wrap"> <img src="{{product.display_image.url}}"> </a>
+                        <figcaption class="info-wrap">
+                            <a href="#" class="title">{{product.name}}</a>
+                            <small class="text-muted">{%for cat in product.category.all%}{{cat.name}}{%endfor%}</small>
+                            <div class="mt-2">
+                                <var class="price"> ₦ {{product.price}}</var> <!-- price-wrap.// -->
+                                <a href="{% url 'shop:product_detail' product.slug %}" class="btn btn-sm btn-outline-primary float-end">View<i class="fa fa-eye mx-1"></i></a>
+                            </div> <!-- action-wrap.end -->
+                        </figcaption>
+                    </div>
+                </div> <!-- col.// -->
+            {% endfor %}
+
+            <div class='overflow-hidden'>
+                {% include "pagination.html" with page=products %}
+            </div>
+        {% else %}
+        <p class="text-muted text-center">No products found</p>
+        {% endif %}
+</div>
+{% endblock %}

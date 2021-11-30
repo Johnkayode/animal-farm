@@ -1,0 +1,63 @@
+{% extends "dashboard_base.html" %}
+{% block page_name %}
+Add New Product
+{% endblock %}
+
+{% block body %}
+<style>
+    .card{
+        margin: auto;
+        max-width: 600px;
+    
+    }
+</style>
+<div class="card mx-auto py-3">
+    <div class="card-body">
+    <h4 class="card-title mb-4">+ New Product</h4>
+
+    <form action="" method="post" enctype="multipart/form-data">
+            {% if form.errors %}
+            <center><small class="text-danger py-2">{{form.errors}}</small></center>
+            {% endif %}
+            {% for message in messages %}
+            <center><small class="text-{{message.tags}} py-2">{{message}}</small></center>
+            {% endfor %}
+        <div class="form-group mb-3">
+            <label>Name</label>
+            {{form.name}}
+            </div> 
+        <div class="form-group my-3">
+            <label>Categories</label>
+            {% for category in all_categories%}
+                <div class="form-check-group">
+                    <input  class="form-check-input" type="checkbox" name="categories" value="{{category.slug}}">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{category.name}}
+                    </label>
+                </div>
+                      
+            {% endfor %}
+        </div> 
+        <div class="form-group mb-3">
+            <label>Price</label>
+            {{form.price}}
+        </div>
+        <div class="form-group mb-3">
+            <label>Description</label>
+            {{form.detail}}
+        </div>
+        <div class="form-group mb-3">
+            <label>Display Image</label>
+            {{form.display_image}}
+        </div>
+            
+        {% csrf_token %}
+        <div class="form-group mt-2">
+            <button type="submit" class="btn btn-orange text-light btn-block"> Create Product</button>
+        </div> <!-- form-group// -->   
+
+    </form>
+    </div> <!-- card-body.// -->
+    
+</div>
+{% endblock %}

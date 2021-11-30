@@ -1,0 +1,57 @@
+{% extends "dashboard_base.html" %}
+{% block page_name %}
+Profile
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<style>
+    .card{
+        margin: auto;
+        max-width: 600px;
+    
+    }
+</style>
+<div class="card mx-auto py-3">
+    <div class="card-body">
+    <h4 class="card-title mb-4">Edit Profile</h4>
+    {% if request.user.vendor.logo.url %}
+    <img src="{{request.user.vendor.logo.url}}" class="py-4 rounded-circle" width="100">
+    {% else %}
+    <img src="{% static 'img/default.jpg' %}" class="py-4 rounded-circle" width="100">
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data">
+            {% if form.errors %}
+            <center><small class="text-danger py-2">{{form.errors}}</small></center>
+            {% endif %}
+            <div class="form-group my-1">
+                <label>Business Name</label>
+                {{vendor_form.business_name}}
+             </div>
+             <div class="form-group my-1">
+                <label>Email</label>
+                {{user_form.email}}
+             </div>
+             <div class="form-group my-1">
+                <label>WhatsApp Number</label>
+                {{vendor_form.phone_number}}
+             </div>
+             <div class="form-group my-1">
+                <label>Address</label>
+                {{vendor_form.address}}
+             </div>
+             <div class="form-group my-1">
+                <label>City</label>
+                {{vendor_form.city}}
+            </div>
+            
+            {% csrf_token %}
+            <div class="form-group mt-2">
+                <button type="submit" class="btn btn-orange text-light btn-block">Save Changes</button>
+            </div> <!-- form-group// -->   
+
+    </form>
+    </div> <!-- card-body.// -->
+    
+</div>
+{% endblock %}

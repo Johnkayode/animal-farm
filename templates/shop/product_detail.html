@@ -1,0 +1,103 @@
+{% extends 'base.html ' %}
+
+{% block body %}
+<div class="container py-5">
+    <!-- ============================ COMPONENT 1 ================================= -->
+    <div class="card">
+        <div class="row no-gutters">
+            <aside class="col-md-6">
+    <article class="gallery-wrap"> 
+        <div class="img-big-wrap">
+        <a href="#"><img src="{{product.display_image.url}}"></a>
+        </div> <!-- img-big-wrap.// -->
+    </article> <!-- gallery-wrap .end// -->
+            </aside>
+            <main class="col-md-6 border-left">
+    <article class="content-body">
+
+    <h2 class="title">{{product.name}}</h2>
+    <span class="text-muted">
+        {% for category in product.category.all %}
+        <small class="mx-1">{{category.name}}</small>
+    {% endfor %}
+    </span>
+    <p class="text-orange">
+        Vendor: {{product.vendor.business_name}}
+    </p>
+    
+    
+
+    <div class="mb-3"> 
+        <var class="price h4">₦{{product.price}}</var>  
+    </div> 
+
+    <p>{{product.detail}}</p>
+    
+
+    <hr>
+        <a class="btn  btn-orange text-light" id="buy" data-bs-toggle="modal" data-bs-target="#buyModal"> <span class="text">Buy Now</span> <i class="fas fa-shopping-cart"></i>  </a>
+        <!-- Modal -->
+        <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="buyModalLabel">Buy {{product.name}}</h5>
+                <button type="button" class="btn-close" id="close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <p><i class="fas fa-map-marker-alt mx-2 text-danger py-4"></i>{{product.vendor.address}} {{product.vendor.city}}</p>
+                <a href="https://wa.me/{{product.vendor.phone_number}}?text={{text}}%20{{product.name}}" target="_blank" class="btn whatsapp-btn btn-block text-center my-2"><i class="fab fa-whatsapp mx-1"></i> Message Vendor on Whatsapp</a>
+                <a href="tel:{{product.vendor.phone_number}}" target="_blank" class="btn call-btn btn-block text-center my-2"><i class="fas fa-phone mx-1"></i> Call Vendor on Phone</a>
+                <a href="mailto:{{product.vendor.user.email}}" target="_blank" class="btn mail-btn btn-block text-center my-2"><i class="fas fa-envelope mx-1"></i> Send Vendor a Mail</a>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+    </article> 
+            </main> 
+        </div> 
+    </div>
+   
+    <div class="card my-3 py-5 px-5">
+        <div class="">
+            <h3>Related Products:</h3>
+            <div class="row py-3">
+                
+                {% if related_products %}
+                {% for product in related_products %}
+                <div class="col-md-3">
+                    <div href="#" class="card card-product-grid">
+                        <a class="img-wrap"> <img src="{{product.display_image.url}}"> </a>
+                        <figcaption class="info-wrap">
+                            <a href="#" class="title">{{product.name}}</a>
+                            <small class="text-muted">{%for cat in product.category.all%}{{cat.name}}{%endfor%}</small>
+                            <div class="mt-2">
+                                <var class="price"> ₦ {{product.price}}</var> <!-- price-wrap.// -->
+                                <a href="{% url 'shop:product_detail' product.slug %}" class="btn btn-sm btn-outline-primary float-end">View<i class="fa fa-eye mx-1"></i></a>
+                            </div> <!-- action-wrap.end -->
+                        </figcaption>
+                    </div>
+                </div> <!-- col.// -->
+                {% endfor %}
+                {% else %}
+                <p class="text-center text-muted py-5">
+                    No products found.
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $("#buy").click(function(){
+        $('.modal').modal('show');
+    });
+    $("#close-modal").click(function(){
+        $('.modal').modal('hide');
+    });
+</script>
+{% endblock %}

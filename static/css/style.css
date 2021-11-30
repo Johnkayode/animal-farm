@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body{
+    font-family: "Open Sans";
+    overflow-x: hidden !important;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.text-orange{
+    color: #eb2e08;
+}
+
+.btn-orange{
+    background-color: #eb2e08;
+    border-radius: 0;
+    border: none;
+}
+
+.btn-orange:focus{
+    background-color: #eb2e08;
+    opacity: 0.9;
+}
+
+.btn-orange:hover{
+    background-color: #eb2e08;
+    opacity: 0.9;
+}
+
+
+.btn-close:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #eb2e08 !important;
+}
+
+.alert{
+    position: fixed !important;
+    bottom: 0 !important;
+    right: 5px;
+    
+}
+
+.btn-outline-primary{
+    border: 1px solid #eb2e08 !important;
+    color: #eb2e08;
+}
+
+
+.btn-outline-primary:hover{
+    background: #eb2e08;
+    color: #ffffff;
+}
+
+.socials, .header-link{
+    color: grey !important;
+    font-size: 16px;
+}
+
+.navbar-toggler{
+    border: none;
+    box-shadow: none;
+}
+
+.navbar-toggler:focus, .navbar-toggler-icon:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background-color: transparent;
+}
+
+.navbar-nav .nav-item a:hover,
+.socials:hover, .header-link:hover{
+    color: #eb2e08 !important;
+}
+
+.hero-section{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+      ),
+      /* your image */
+      url("/static/img/poultry.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 120px 80px;
+}
+
+@media (max-width: 991.98px) { 
+    .hero-section{
+        padding: 80px 18px;
+    }
+ }
+
+
+  .hero-section .caption{
+    padding:40px;
+    color:white;
+    animation-duration: 1s;
+    animation-delay: 2s;
+  }
+  .hero-section .caption h1{
+    animation-duration: 1s;
+    animation-delay: 2s;
+    font-weight: 700;
+  }
+  .hero-section .caption p{
+    font-size: 18px;
+    animation-duration: 1s;
+    animation-delay: 2.2s;
+  }
+  
+  .hero-section .caption a{
+    animation-duration: 1s;
+    animation-delay: 2.4s;
+  }
+
+  .hero-btn{
+      padding: 8px 18px;
+      background-color: #eb2e08;
+      border-radius: 0;
+      transition: 0.2s all ease-in;
+  }
+
+  .hero-btn:hover{
+      opacity: 0.9;
+  }
+  
+  .send-btn{
+    padding: 8px 18px;
+    background-color: #eb2e08;
+    color: #ffffff;
+    width: 100%;
+  }
+
+  .send-btn:hover{
+      color: #ffffff !important;
+      opacity: 0.9;
+  }
+
+  .btn-block{
+      margin: auto;
+      width: 100%;
+  }
+
+  .whatsapp-btn{
+      background-color: #25d366;
+  }
+
+  .call-btn{
+    background-color: #eb2e08;
+  }
+
+  .mail-btn{
+      background-color:  #34b7f1;
+  }
+
+  .whatsapp-btn , .call-btn, .mail-btn{
+      margin: auto;
+      border-radius: 20px;
+      padding: 8px 15px;
+      color: #ffffff;
+  }
+
+  .whatsapp-btn:hover , .call-btn:hover, .mail-btn:hover{
+      color: #ffffff;
+      opacity: 0.9;
+  }

@@ -1,0 +1,56 @@
+{% extends "dashboard_base.html" %}
+{% block page_name %}
+Your Products
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row py-5">
+        {% if products %}
+        {% for product in products %}
+        <div class="col-md-3">
+            <div href="#" class="card card-product-grid">
+                <a class="img-wrap"> <img src="{{product.display_image.url}}"> </a>
+                <figcaption class="info-wrap">
+                    <a href="#" class="title">{{product.name}}</a>
+                    <small class="text-muted">{%for cat in product.category.all%}{{cat.name}}{%endfor%}</small>
+                    <div class="mt-2">
+                        <var class="price"> ₦ {{product.price}}</var> <!-- price-wrap.// -->
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#Modal{{product.id}}" class="text-light btn btn-sm btn-orange float-end mx-1">Delete<i class="fa fa-trash mx-1"></i></a>
+                        <a href="{% url 'dashboard:edit_product' product.slug %}" class="btn btn-sm btn-outline-primary float-end">Edit<i class="fa fa-edit mx-1"></i></a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="Modal{{product.id}}" tabindex="-1" aria-labelledby="ModalLabel{{product.id}}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLabel{{product.id}}">Delete this Product?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                Are you sure you want to delete this product?
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a type="button" href="{% url 'dashboard:delete_product' product.slug %}" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div> <!-- action-wrap.end -->
+                </figcaption>
+            </div>
+        </div> <!-- col.// -->
+        {% endfor %}
+        <div class='overflow-hidden'>
+            {% include "pagination.html" with page=products %}
+        </div>
+        {% else %}
+        <p class="text-center text-muted">
+            No products available
+        </p>
+        {% endif %}
+
+
+        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container py-5">
+    <div class="col-md-6 mx-auto text-center">
+        <div class="header-title">
+           <h1 class="wv-heading--title">
+              Become a Vendor
+           </h1>
+           <h2 class="wv-heading--subtitle">
+             Sell your poultry products
+           </h2>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-md-4 mx-auto">
+           <div class="myform form ">
+              <form action="" method="post" name="login">
+                 <div class="form-group my-1">
+                     
+                    {{vendor_form.business_name}}
+                 </div>
+                 <div class="form-group my-1">
+                    {{user_form.email}}
+                 </div>
+                 <div class="form-group my-1">
+                    {{vendor_form.phone_number}}
+                 </div>
+                 <div class="form-group my-1">
+                    {{vendor_form.address}}
+                 </div>
+                 <div class="form-group my-1">
+                    {{vendor_form.city}}
+                 <div class="form-group my-1">
+                    {{user_form.password}}
+                 </div>
+                 <div class="text-center ">
+                    <button type="submit" class=" btn btn-block send-btn my-2 tx-tfm">Create Your Free Account</button>
+                 </div>
+                 {% csrf_token %}
+                 <p class="small mt-3">Already have an account?<a href="{% url 'account:login' %}" class="ps-hero__content__link">Sign In</a>.
+                 </p>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
