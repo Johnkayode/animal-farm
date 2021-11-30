@@ -20,8 +20,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["animalfarm.ng","www.animalfarm.ng","animalfarm.com.ng","www.animalfarm.com.ng","104.131.161.120/"]
 
-if DEBUG:
-    ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"]
 
 
 
