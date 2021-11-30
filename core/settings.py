@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-q&n%+61uf0uk^kqq&)ul(+621#s(5ly=_6*&q#c_ix3meh2jn1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["animalfarm.ng","www.animalfarm.ng","animalfarm.com.ng","www.animalfarm.com.ng"]
+ALLOWED_HOSTS = ["animalfarm.ng","www.animalfarm.ng","animalfarm.com.ng","www.animalfarm.com.ng","104.131.161.120/"]
 
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
