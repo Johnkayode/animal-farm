@@ -7,15 +7,15 @@ from .models import CustomUser, Vendor
 
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(widget=PasswordInput(attrs={'class':'form-control', 'required':'required'}))
-    confirm_password = forms.CharField(widget=PasswordInput(attrs={'class':'form-control', 'required':'required', "placeholder":"Confirm Password"}))
-
+    password = forms.CharField(widget=PasswordInput(attrs={'class':'form-control', 'required':'required', "placeholder":"Password"}))
+    confirm_password = forms.CharField(widget=PasswordInput(attrs={'class':'form-control', 'required':'required', "placeholder":"Confirm Password", "aria-describedby":"validationPasswordFeedback"}))
+    
+    
     class Meta:
         model = CustomUser
         fields = ('email',) 
         widgets = {
-        'email': EmailInput(attrs={'class':'form-control', 'required':'required',"placeholder":"Email"}),
-        'password': PasswordInput(attrs={'class':'form-control', 'required':'required',"placeholder":"Password"}),
+        'email': EmailInput(attrs={'class':'form-control', 'required':'required',"placeholder":"Email"})
     }
 
 
