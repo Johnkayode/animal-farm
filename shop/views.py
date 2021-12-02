@@ -21,7 +21,11 @@ def shop(request, category_slug=None):
     query = request.GET.get("q", None)
     if query:
         products = Product.objects.filter(Q(name__icontains=query) | \
-            Q(category__name__icontains=query) | Q(detail__icontains=query))
+            Q(category__name__icontains=query) \
+                | Q(detail__icontains=query) \
+                | Q(age__icontains=query) \
+                | Q(vendor__city__icontains=query) \
+                | Q(vendor__state__icontains=query))
 
     paginator = Paginator(products, 20)
     page = request.GET.get('page')

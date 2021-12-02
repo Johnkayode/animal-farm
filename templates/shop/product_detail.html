@@ -30,6 +30,10 @@
     <div class="mb-3"> 
         <var class="price h4">₦{{product.price}}</var>  
     </div> 
+    <div class="mb-3"> 
+        <var class="price">Age: {{product.age}}</var> <br>
+        <var class="price">Minimum Order Amount: {{product.minimum_order_amount}}</var>  
+    </div> 
 
     <p>{{product.detail}}</p>
     
@@ -45,10 +49,12 @@
                 <button type="button" class="btn-close" id="close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <p><i class="fas fa-map-marker-alt mx-2 text-danger py-4"></i>{{product.vendor.address}} {{product.vendor.city}}</p>
+                <p><i class="fas fa-map-marker-alt mx-2 text-danger py-4"></i>{{product.vendor.street}} {{product.vendor.city}}  {{product.vendor.state}}</p>
                 <a href="https://wa.me/{{product.vendor.phone_number}}?text={{text}}%20{{product.name}}" target="_blank" class="btn whatsapp-btn btn-block text-center my-2"><i class="fab fa-whatsapp mx-1"></i> Message Vendor on Whatsapp</a>
                 <a href="tel:{{product.vendor.phone_number}}" target="_blank" class="btn call-btn btn-block text-center my-2"><i class="fas fa-phone mx-1"></i> Call Vendor on Phone</a>
                 <a href="mailto:{{product.vendor.user.email}}" target="_blank" class="btn mail-btn btn-block text-center my-2"><i class="fas fa-envelope mx-1"></i> Send Vendor a Mail</a>
+                
+                <a href="https://wa.me/+2348100048233?text=logistics" target="_blank">Logistics</a>
                 </div>
                 
             </div>

@@ -9,6 +9,14 @@ a{
     text-decoration: none !important;
 }
 
+.bg-light-grey{
+    background-color:#e6e0df;
+}
+
+.bg-orange{
+    background-color: #eb2e08;
+}
+
 .text-orange{
     color: #eb2e08;
 }
@@ -173,4 +181,33 @@ a{
   .whatsapp-btn:hover , .call-btn:hover, .mail-btn:hover{
       color: #ffffff;
       opacity: 0.9;
+  }
+
+  .farms-section{
+      padding: 80px 40px;
+  }
+
+  .farms-section h2{
+      font-weight: 700;
+  }
+
+  .farms-section p{
+      font-size: 20px;
+  }
+
+  .farms-section a{
+      background: #FFFFFF;
+      color: #eb2e08;
+      padding: 12px 30px;
+      border-radius: 25px;
+  }
+
+  .farms-section a:hover{
+     background-color: #eb2e08;
+     color: #FFFFFF;
+     border: 1px solid #FFFFFF
+  }
+
+  .farms-section img{
+      max-width: 300px;
   }

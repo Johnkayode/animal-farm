@@ -30,8 +30,10 @@ class Vendor(models.Model):
     business_name = models.CharField(_("business name"), max_length=250, blank=False, null=False)
     phone_number = models.CharField(_("phone number"), max_length=15)
     logo = models.ImageField(blank=True, null=True)
-    address = models.CharField(_("address"), max_length=250)
-    city = models.CharField(_("city"), max_length=250)
+    street = models.CharField(_("street"), max_length=250, null=True)
+    city = models.CharField(_("city"), max_length=250, null=True)
+    state = models.CharField(_("state"), max_length=250, null=True)
+    verified = models.BooleanField(default=False)
 
     def __str__(self):
         return self.business_name

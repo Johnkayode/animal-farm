@@ -32,11 +32,9 @@
 
                 <!-- Header Social -->
                 <div class="list-unstyled my-2 col-lg-4">
-                    <a href="#" class="socials"><i class="fab fa-facebook mx-1"></i></a>
-                    <a href="#" class="socials"><i class="fab fa-twitter mx-1"></i></a>
-                    <a href="#" class="socials"><i class="fab fa-linkedin mx-1"></i></a>
-                    <a href="#" class="socials"><i class="fab fa-instagram mx-1"></i></a>
-                    <a href="#" class="socials"><i class="fab fa-pinterest-p mx-1"></i></a>
+                    <a href="https://facebook.com/animalfarm.ng/" target="_blank" class="socials"><i class="fab fa-facebook mx-1"></i></a>
+                    <a href="https://www.instagram.com/animalfarm.ng/" target="_blank" class="socials"><i class="fab fa-twitter mx-1"></i></a>
+                    <a href="https://twitter.com/animalfarmng_/" target="_blank" class="socials"><i class="fab fa-instagram mx-1"></i></a>
                 </div>
 
                 <!-- Header Logo -->
@@ -47,8 +45,10 @@
                 <!-- Account Menu -->
                 <div class="col-lg-4 my-2">
                     <ul class="list-unstyled">
+                        <li class="mx-1"><a href="#poultry-farms"  class="header-link"><i class="px-2 fas fa-farm"></i>Establish poultry farms</a></li>
                         <li class="mx-1"><a href="{% url 'account:register' %}" class="header-link"><i class="px-2 fas fa-user"></i>Become a Vendor</a></li>
                         <li class="mx-1"><a href="/shop/"  class="header-link"><i class="px-2 fas fa-store"></i>Shop</a></li>
+                        
                     </ul>
                 </div>
 
@@ -72,8 +72,8 @@
                     <form class="app-search position-absolute" id="search-form" action="/shop/" hidden>
                         <input
                           type="text"
-                          class="form-control"
-                          placeholder="Search Products"
+                          class="form-control px-2"
+                          placeholder="Search Products by Category, Age, Location"
                           name = "q"
                         />
                       </form>
