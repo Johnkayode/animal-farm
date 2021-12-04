@@ -120,8 +120,8 @@ a{
     animation-delay: 2s;
     font-weight: 700;
   }
-  .hero-section .caption p{
-    font-size: 18px;
+  .hero-section .caption .caption-text{
+    font-size: 20px;
     animation-duration: 1s;
     animation-delay: 2.2s;
   }
