@@ -6,6 +6,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from .manager import CustomUserManager
+from .utils import generate_code
 
 import uuid
 
@@ -15,6 +16,8 @@ class CustomUser(AbstractUser):
     username = None
     uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(_("email address"), blank=False, unique=True)
+    verified = models.BooleanField(default=False)
+    verification_code = models.CharField(_("verification code"), max_length=6, default=generate_code)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
@@ -33,7 +36,6 @@ class Vendor(models.Model):
     street = models.CharField(_("street"), max_length=250, null=True)
     city = models.CharField(_("city"), max_length=250, null=True)
     state = models.CharField(_("state"), max_length=250, null=True)
-    verified = models.BooleanField(default=False)
 
     def __str__(self):
         return self.business_name

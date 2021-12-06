@@ -1,6 +1,7 @@
 from django import forms
 from django.forms.widgets import PasswordInput, TextInput, EmailInput, FileInput, NumberInput, DateInput, Select
 from .models import CustomUser, Vendor
+from .utils import generate_code
 
 
 
@@ -63,4 +64,5 @@ class VendorForm(forms.ModelForm):
         'street': TextInput(attrs={'class':'form-control', 'required':'required'}),
         'city': TextInput(attrs={'class':'form-control', 'required':'required'}),
         'state': TextInput(attrs={'class':'form-control', 'required':'required'}),
+        'logo': FileInput(attrs={'class':'form-control'}),
     }

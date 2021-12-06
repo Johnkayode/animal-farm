@@ -4,6 +4,7 @@ from django.contrib import messages
 
 from .models import Vendor
 
+
 def is_vendor(function):
   @wraps(function)
   def wrap(request, *args, **kwargs):

@@ -15,7 +15,7 @@ Profile
 <div class="card mx-auto py-3">
     <div class="card-body">
     <h4 class="card-title mb-4">Edit Profile</h4>
-    {% if request.user.vendor.logo.url %}
+    {% if request.user.vendor.logo %}
     <img src="{{request.user.vendor.logo.url}}" class="py-4 rounded-circle" width="100">
     {% else %}
     <img src="{% static 'img/default.jpg' %}" class="py-4 rounded-circle" width="100">
@@ -33,6 +33,10 @@ Profile
                 {{user_form.email}}
              </div>
              <div class="form-group my-1">
+                <label>Logo</label>
+                {{vendor_form.logo}}
+            </div>
+             <div class="form-group my-1">
                 <label>WhatsApp Number</label>
                 {{vendor_form.phone_number}}
              </div>
@@ -48,6 +52,8 @@ Profile
                 <label>State</label>
                 {{vendor_form.state}}
             </div>
+            
+            
             
             {% csrf_token %}
             <div class="form-group mt-2">
