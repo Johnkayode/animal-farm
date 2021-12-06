@@ -15,6 +15,8 @@ from django.contrib.auth.decorators import login_required
 
 from shop.models import Category
 
+import os, requests
+
 
 def register(request):
     user_form = UserRegistrationForm(request.POST or None)
@@ -28,11 +30,14 @@ def register(request):
             message = "One more step to start selling your poultry birds"
             verification_code = user.verification_code
             html_message = f"Hi {vendor.business_name},\n\nYou're almost done setting up your account.\n\nYour verification code: {verification_code}"
+            """
             send_mail_task.delay(subject="Verify your Account", 
                message=message, 
                recipient_list=[user.email], 
                html_message=html_message
             )
+            """
+            requests.post("https://api.mailgun.net/v3/animalfarm.ng/messages", auth=("api", os.environ.get("MAILGUN_API_KEY")), data={"from": "Animal Farm NG <hello@animalfarm.ng>", "to": [user.email],  "subject": "Verify Your Account", "text": html_message})
             
             messages.success(request, 'Account successfully created. Verify your Account')
             return redirect("account:verify")
