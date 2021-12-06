@@ -27,8 +27,7 @@ def register(request):
             vendor.save()
             message = "One more step to start selling your poultry birds"
             verification_code = user.verification_code
-            ctx = {"business_name":vendor.business_name, "code": verification_code}
-            html_message = render_to_string("emails/verify.html", ctx)
+            html_message = f"Hi {vendor.business_name},\n\nYou're almost done setting up your account.\n\nYour verification code: {verification_code}"
             send_mail_task.delay(subject="Verify your Account", 
                message=message, 
                recipient_list=[user.email], 

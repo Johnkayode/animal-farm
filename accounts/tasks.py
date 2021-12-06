@@ -20,7 +20,7 @@ def send_mail_task(subject, message, recipient_list, html_message):
     return requests.post(
 		"https://api.mailgun.net/v3/animalfarm.ng/messages",
 		auth=("api", os.environ.get("MAILGUN_API_KEY")),
-		data={"from": "Animal Farm NG <mailgun@animalfarm.ng>",
+		data={"from": "Animal Farm NG <hello@animalfarm.ng>",
 			"to": recipient_list,
 			"subject": subject,
 			"text": html_message})
