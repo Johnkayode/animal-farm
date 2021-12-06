@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.template.loader import get_template
+from django.template.loader import get_template, render_to_string
 
 from accounts.models import CustomUser, Vendor
 
@@ -28,7 +28,7 @@ def register(request):
             message = "One more step to start selling your poultry birds"
             verification_code = user.verification_code
             ctx = {"business_name":vendor.business_name, "code": verification_code}
-            html_message = get_template("emails/verify.html").render(ctx)
+            html_message = render_to_string("emails/verify.html", ctx)
             send_mail_task.delay(subject="Verify your Account", 
                message=message, 
                recipient_list=[user.email], 
