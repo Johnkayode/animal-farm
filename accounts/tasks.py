@@ -7,7 +7,7 @@ import requests
 
 
 @app.task
-def send_mail_task(subject, message, recipient_list, html_message):
+def send_mail_task(email, html_message):
     #send_mail(
     #   subject=subject,
     #   message = message,
@@ -17,10 +17,4 @@ def send_mail_task(subject, message, recipient_list, html_message):
     #   html_message=html_message
     #)
 
-    return requests.post(
-		"https://api.mailgun.net/v3/animalfarm.ng/messages",
-		auth=("api", os.environ.get("MAILGUN_API_KEY")),
-		data={"from": "Animal Farm NG <hello@animalfarm.ng>",
-			"to": recipient_list,
-			"subject": subject,
-			"text": html_message})
+    requests.post("https://api.mailgun.net/v3/animalfarm.ng/messages", auth=("api", os.environ.get("MAILGUN_API_KEY")), data={"from": "Animal Farm NG <hello@animalfarm.ng>", "to": [email],  "subject": "Verify Your Account", "text": html_message})
