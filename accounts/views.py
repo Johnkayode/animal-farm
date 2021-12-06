@@ -29,7 +29,7 @@ def register(request):
             verification_code = user.verification_code
             ctx = {"business_name":vendor.business_name, "code": verification_code}
             html_message = get_template("emails/verify.html").render(ctx)
-            send_mail_task(subject="Verify your Account", 
+            send_mail_task.delay(subject="Verify your Account", 
                message=message, 
                recipient_list=[user.email], 
                html_message=html_message
@@ -39,7 +39,7 @@ def register(request):
             return redirect("account:verify")
         else:
             print(user_form.errors, vendor_form.errors)
-            
+
     categories = Category.objects.all()
     context = {"user_form":user_form, "vendor_form":vendor_form,"categories":categories}
     return render(request, "accounts/register.html", context)
