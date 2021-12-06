@@ -39,6 +39,7 @@ def register(request):
             return redirect("account:verify")
         else:
             print(user_form.errors, vendor_form.errors)
+            
     categories = Category.objects.all()
     context = {"user_form":user_form, "vendor_form":vendor_form,"categories":categories}
     return render(request, "accounts/register.html", context)
