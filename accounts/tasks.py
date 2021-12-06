@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 
 
 
-# @app.task
+@app.task
 def send_mail_task(subject, message, recipient_list, html_message):
     send_mail(
         subject=subject,
