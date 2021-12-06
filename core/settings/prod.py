@@ -35,4 +35,11 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+
+
+ANYMAIL = {
+    "MAILGUN_API_KEY": os.environ.get('MAILGUN_API_KEY'),
+    "MAILGUN_API_URL": "https://api.eu.mailgun.net/v3",
+    "MAILGUN_SENDER_DOMAIN": "mail.animalfarm.ng"
+}

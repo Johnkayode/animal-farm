@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "shop.apps.ShopConfig",
     "dashboard.apps.DashboardConfig",
-    "cloudinary"
+    "cloudinary",
+    "anymail"
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_HOST = 'smtp.mailgun.org'
+
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
