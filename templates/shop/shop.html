@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
+{% if category %}
+<div class="category-header"><h4 class="py-5 text-center">{{category}}</h4></div>
+{% endif %}
 <div class="container">
-    
     <div class="row py-5">
         {% if query %}
         <p class="text-muted text-center py-4">Search results for <span class="text-orange">{{query}}</span></p>

@@ -15,9 +15,12 @@ def home(request):
 def shop(request, category_slug=None):
     products = Product.objects.all()
     categories = Category.objects.all()
+    category= None
     query = None
     if category_slug:
         products = Product.objects.filter(category__slug=category_slug)
+        category = Category.objects.filter(slug=category_slug).first()
+        category = category.name
     query = request.GET.get("q", None)
     if query:
         products = Product.objects.filter(Q(name__icontains=query) | \
@@ -36,7 +39,7 @@ def shop(request, category_slug=None):
     except:
         products = paginator.page(1)
 
-    context = {"categories":categories, "products":products, "query":query}
+    context = {"categories":categories, "products":products, "query":query, "category":category}
     return render(request, "shop/shop.html", context)
 
 

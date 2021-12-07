@@ -15,6 +15,36 @@
         </a>
     </div>
 </section>
+<section class="category-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 d-flex">
+        <a href="{% url 'shop:shop_by_category' 'broiler-a2d4' %}">
+          <img src="{% static 'img/broiler.jpg' %}" class="img-fluid category-img d-flex" >
+          <h5>Broiler</h5>
+        </a>
+      </div>
+      <div class="col-lg-3  d-flex">
+        <a href="{% url 'shop:shop_by_category' 'layer-b2de' %}">
+          <img src="{% static 'img/layers.jpg' %}" class="img-fluid category-img d-flex" >
+          <h5>Layer</h5>
+        </a>
+      </div>
+      <div class="col-lg-3  d-flex">
+        <a href="{% url 'shop:shop_by_category' 'noiler-c4f5' %}">
+          <img src="{% static 'img/noiler.jfif' %}" class="img-fluid category-img d-flex">
+          <h5>Noiler</h5>
+        </a>
+      </div>
+      <div class="col-lg-3  d-flex">
+        <a href="{% url 'shop:shop_by_category' 'turkey-h2e9' %}">
+          <img src="{% static 'img/turkey.jpg' %}" class="img-fluid category-img d-flex">
+          <h5>Turkey</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="farms-section bg-orange text-light" id="poultry-farms">
   <div class="container py-5">
     <div class="row">
@@ -27,6 +57,32 @@
         <img src="{% static 'img/farm-girl.svg' %}" class="img-fluid">
       </div>
     </div>
+  </div>
+</section>
+<section class="features-section bg-light-grey">
+  
+  <div class="container px-4 py-5" id="icon-grid">
+   <div class="row py-5">
+    <div class="col-lg-6 align-self-center">
+      <p class="my-3">
+        <strong>Got birds to sell off?</strong><br>
+        Sign up as a vendor to sell your birds fast and maximize your profit.
+      </p>
+    </div>
+     <div class="col-lg-6">
+      <img src="{% static 'img/poultry-1.jpg' %}" alt="" class="img-fluid">
+     </div>
+   </div>
+   <div class="row">
+    <div class="col-lg-6">
+      <img src="{% static 'img/farm.jpg' %}" alt="" class="img-fluid">
+     </div>
+    <div class="col-lg-6 align-self-center">
+      <p class="my-3">
+        Make money from poultry farming, we provide you with all the support you need for free with guaranteed sales.
+      </p>
+    </div>
+   </div>
   </div>
 </section>
 <section class="products-section">
@@ -58,29 +114,7 @@
         
 
 </section>
-<section class="features-section bg-light-grey">
-  
-  <div class="container px-4 py-5" id="icon-grid">
-    <h2 class="pb-2 border-bottom border-dark">Why Us?</h2>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-4 py-5">
-      <div class="col d-flex align-items-start">
-        <i class="fas fa-users fa-2x flex-shrink-0 text-muted me-3"></i>
-        <div>
-          <h4 class="fw-bold mb-0"><a class="text-dark" href="{% url 'account:register' %}">Large Customer Base</a></h4>
-          <p class="py-1">Sign up to sell your birds fast on Animal Farm NG to maximize your profits and increase your customer base. </p>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <i class="fas fa-shipping-fast fa-2x flex-shrink-0 text-muted me-3"></i>
-        <div>
-          <h4 class="fw-bold mb-0"><a class="text-dark" href="https://wa.me/+2348100048233?text=logistics">Logistics</a></h4>
-          <p class="py-1">We offer safest means and best rates to transport your birds from the farm to you desired location.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <footer class="text-start  bg-dark text-muted">
     <!-- Section: Social media -->
     <section
