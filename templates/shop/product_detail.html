@@ -54,7 +54,7 @@
                 <a href="tel:{{product.vendor.phone_number}}" target="_blank" class="btn call-btn btn-block text-center my-2"><i class="fas fa-phone mx-1"></i> Call Vendor on Phone</a>
                 <a href="mailto:{{product.vendor.user.email}}" target="_blank" class="btn mail-btn btn-block text-center my-2"><i class="fas fa-envelope mx-1"></i> Send Vendor a Mail</a>
                 
-                <a href="https://wa.me/+2348100048233?text=logistics" target="_blank">Logistics</a>
+                <a href="{% url 'shop:enquire' %}" target="_blank">Logistics</a>
                 </div>
                 
             </div>

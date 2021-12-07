@@ -244,10 +244,12 @@ a{
       color: #222222;
   }
 
+  .logistics-section h5,
   .features-section h5{
       font-size: 25px;
   }
 
+  .logistics-section p,
   .features-section p{
     font-size: 21px;
   }
@@ -255,4 +257,9 @@ a{
   .features-section img{
     width: 100%;
     height: 300px;
+  }
+
+
+  .logistics-section{
+      padding: 80px 10px;
   }

@@ -1,15 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 
 
 from .models import Product, Category
 
+import os
+import random
+import requests
+
 
 def home(request):
     categories = Category.objects.all()
     latest_products = Product.objects.all().order_by("-id")[:4]
-    context = {"categories":categories, "latest_products":latest_products}
+    products = list(Product.objects.all())
+    random_products = random.sample(products, len(products))[:4]
+    context = {"categories":categories, "latest_products":latest_products, "random_products": random_products}
     return render(request, "shop/index.html", context)
 
 def shop(request, category_slug=None):
@@ -51,3 +57,21 @@ def product_detail(request, product_slug):
     text = "Hi, I am referred from Animal Farm NG. I want to buy"
     context = {"categories":categories, "product":product, "text":text, "related_products":related_products}
     return render(request, "shop/product_detail.html", context)
+
+
+def enquire(request):
+    if request.method == "POST":
+        name = request.POST.get("name", None)
+        email = request.POST.get("email", None)
+        farm_name = request.POST.get("farm_name", None)
+        category = request.POST.get("category", None)
+        age = request.POST.get("age", None)
+        quantity = request.POST.get("quantity", None)
+        from_where = request.POST.get("from", None)
+        to_where = request.POST.get("to", None)
+        html_message = f"ENQUIRY\n\n\nName: {name}\nEmail: {email}\nFarm Name: {farm_name}\nCategory: {category}\nAge: {age}\nQuantity: {quantity}\n\nFrom: {from_where}\nTo: {to_where}"
+        requests.post("https://api.mailgun.net/v3/animalfarm.ng/messages", auth=("api", os.environ.get("MAILGUN_API_KEY")), data={"from": "Animal Farm NG <hello@animalfarm.ng>", "to": ["peculiarmercy09@gmail.com"],  "subject": "Enquiry", "text": html_message})
+        return redirect("shop:enquire")
+    categories = Category.objects.all()
+    context = {"categories":categories}
+    return render(request, "shop/enquire.html", context)
