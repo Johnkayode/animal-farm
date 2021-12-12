@@ -15,6 +15,17 @@
         </a>
     </div>
 </section>
+<section class="logistics-section bg-orange text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 px-3 py-3"><img src="{% static 'img/logistics.png' %}" alt="" class="img-fluid"></div>
+      <div class="col-lg-6 align-self-center">
+        <p><strong>Logistics</strong><br>We offer safest means and best rates to transport yout birds from the farm to your desired location.</p>
+        <a href="{% url 'shop:enquire' %}" class="my-2 btn btn-light text-orange px-2 py-2">Enquire about Logistics</a>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="category-section">
   <div class="container">
     <div class="row">
@@ -59,6 +70,34 @@
     </div>
   </div>
 </section>
+<section class="products-section">
+  <div class="container py-5">
+      <header class="section-heading">
+          <p class="text-orange">New In</p>
+          <h3 class="section-title">Latest products</h3>
+      </header><!-- sect-heading -->  
+      
+      <div class="row py-5">
+          {% for product in latest_products %}
+              <div class="col-md-3">
+                  <div href="#" class="card card-product-grid">
+                      <a class="img-wrap"> <img src="{{product.display_image.url}}"> </a>
+                      <figcaption class="info-wrap">
+                          <a href="#" class="title">{{product.name}}</a>
+                          <small class="text-muted">{%for cat in product.category.all%}{{cat.name}}{%endfor%}</small>
+                          <div class="mt-2">
+                              <var class="price"> ₦ {{product.price}}</var> <!-- price-wrap.// -->
+                              <a href="{% url 'shop:product_detail' product.slug %}" class="btn btn-sm btn-outline-primary float-end">Order Now<i class="fa fa-shopping-cart mx-1"></i></a>
+                          </div> <!-- action-wrap.end -->
+                      </figcaption>
+                  </div>
+              </div> <!-- col.// -->
+          {% endfor %}
+     
+          
+      </div> <!-- row.// -->
+  </div>
+</section>
 <section class="features-section bg-light-grey">
   
   <div class="container px-4 py-5" id="icon-grid">
@@ -73,59 +112,9 @@
       <img src="{% static 'img/poultry-1.jpg' %}" alt="" class="img-fluid">
      </div>
    </div>
-   <div class="row">
-    <div class="col-lg-6">
-      <img src="{% static 'img/farm.jpg' %}" alt="" class="img-fluid">
-     </div>
-    <div class="col-lg-6 align-self-center">
-      <p class="my-3">
-        Make money from poultry farming, we provide you with all the support you need for free with guaranteed sales.
-      </p>
-      <a href="https://wa.me/+2348100048233" target="_blank" class="text-dark"><strong>Build your farm <i class="fas fa-arrow-right"></i></strong></a>
-    </div>
-   </div>
   </div>
 </section>
 <section class="products-section">
-    <div class="container py-5">
-        <header class="section-heading">
-            <p class="text-orange">New In</p>
-            <h3 class="section-title">Latest products</h3>
-        </header><!-- sect-heading -->  
-        
-        <div class="row py-5">
-            {% for product in latest_products %}
-                <div class="col-md-3">
-                    <div href="#" class="card card-product-grid">
-                        <a class="img-wrap"> <img src="{{product.display_image.url}}"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">{{product.name}}</a>
-                            <small class="text-muted">{%for cat in product.category.all%}{{cat.name}}{%endfor%}</small>
-                            <div class="mt-2">
-                                <var class="price"> ₦ {{product.price}}</var> <!-- price-wrap.// -->
-                                <a href="{% url 'shop:product_detail' product.slug %}" class="btn btn-sm btn-outline-primary float-end">Order Now<i class="fa fa-shopping-cart mx-1"></i></a>
-                            </div> <!-- action-wrap.end -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-            {% endfor %}
-       
-            
-        </div> <!-- row.// -->
-    </div>
-</section>
-<section class="logistics-section bg-orange text-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 px-3 py-3"><img src="{% static 'img/logistics.png' %}" alt="" class="img-fluid"></div>
-      <div class="col-lg-6 align-self-center">
-        <p><strong>Logistics</strong><br>We offer safest means and best rates to transport yout birds from the farm to your desired location.</p>
-        <a href="{% url 'shop:enquire' %}" class="my-2 btn btn-light text-orange px-2 py-2">Enquire about Logistics</a>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="products-section bg-light-grey">
   <div class="container py-5">
     <header class="section-heading">
         <p class="text-orange">Our Products</p>
@@ -152,6 +141,22 @@
         
     </div> <!-- row.// -->
 </div>
+</section>
+<section class="features-section bg-light-grey">
+  
+  <div class="container px-4 py-5" id="icon-grid">
+   <div class="row">
+    <div class="col-lg-6">
+      <img src="{% static 'img/farm.jpg' %}" alt="" class="img-fluid">
+     </div>
+    <div class="col-lg-6 align-self-center">
+      <p class="my-3">
+        Make money from poultry farming, we provide you with all the support you need for free with guaranteed sales.
+      </p>
+      <a href="https://wa.me/+2348100048233" target="_blank" class="text-dark"><strong>Build your farm <i class="fas fa-arrow-right"></i></strong></a>
+    </div>
+   </div>
+  </div>
 </section>
 <footer class="text-start  bg-dark text-muted">
     <!-- Section: Social media -->
