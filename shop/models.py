@@ -14,6 +14,13 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
+
+
+    class QUANTITY_CHOICES(models.TextChoices):
+        PER_BIRD = 'Per Bird', _('Per Bird')
+        PER_KG = 'Per Kg', _('Per Kg')
+       
+
     name = models.CharField(_("name"), max_length=250)
     slug = models.CharField(max_length=100, null=True, blank=True)
     vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE, related_name="products")
@@ -21,6 +28,7 @@ class Product(models.Model):
     age = models.CharField(_("age"), max_length=100, null=True)
     display_image = models.ImageField()
     price  = models.DecimalField(decimal_places=2, max_digits=10)
+    quantity = models.CharField(max_length=10, choices=QUANTITY_CHOICES.choices, default=QUANTITY_CHOICES.PER_BIRD)
     minimum_order_amount = models.IntegerField(default=1)
 
     def __str__(self) :

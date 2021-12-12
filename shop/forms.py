@@ -15,11 +15,12 @@ def slugify(word):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('name','display_image', 'price', 'age','minimum_order_amount') 
+        fields = ('name','display_image', 'price', 'quantity','age','minimum_order_amount') 
         widgets = {
         'name':TextInput(attrs={'class':'form-control', 'required':'required'}),
         'age' : TextInput(attrs={'class':'form-control', 'required':'required'}),
         'price' : NumberInput(attrs={'class':'form-control', 'required':'required'}),
+        'quantity': Select(attrs={'class':"form-control form-select", 'required':'required'}),
         'minimum_order_amount' : NumberInput(attrs={'class':'form-control', 'required':'required'}),
         'display_image' : FileInput(attrs={'class':'form-control', 'required':'required'})
     }
