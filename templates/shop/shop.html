@@ -17,7 +17,7 @@
                             <a href="#" class="title">{{product.name}}</a>
                             <small class="text-muted">{%for cat in product.category.all%}{{cat.name}}{%endfor%}</small>
                             <div class="mt-2">
-                                <var class="price"> ₦ {{product.price}}</var> <!-- price-wrap.// -->
+                                <var class="price"> ₦ {{product.price}} {{product.quantity}}</var> <!-- price-wrap.// -->
                                 <a href="{% url 'shop:product_detail' product.slug %}" class="btn btn-sm btn-outline-primary float-end">Order Now<i class="fa fa-shopping-cart mx-1"></i></a>
                             </div> <!-- action-wrap.end -->
                         </figcaption>

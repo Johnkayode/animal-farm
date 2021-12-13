@@ -56,6 +56,22 @@
     </div>
   </div>
 </section>
+<section class="features-section bg-light-grey">
+  
+  <div class="container px-4 py-5" id="icon-grid">
+   <div class="row py-5">
+    <div class="col-lg-6 align-self-center">
+      <p class="my-3">
+        <strong>Got birds to sell off?</strong><br>
+        Sign up as a vendor to sell your birds fast and maximize your profit.
+      </p>
+    </div>
+     <div class="col-lg-6">
+      <img src="{% static 'img/poultry-1.jpg' %}" alt="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+</section>
 <section class="products-section">
   <div class="container py-5">
       <header class="section-heading">
@@ -72,7 +88,7 @@
                           <a href="#" class="title">{{product.name}}</a>
                           <small class="text-muted">{%for cat in product.category.all%}{{cat.name}}{%endfor%}</small>
                           <div class="mt-2">
-                              <var class="price"> ₦ {{product.price}}</var> <!-- price-wrap.// -->
+                              <var class="price"> ₦ {{product.price}} {{product.quantity}}</var> <!-- price-wrap.// -->
                               <a href="{% url 'shop:product_detail' product.slug %}" class="btn btn-sm btn-outline-primary float-end">Order Now<i class="fa fa-shopping-cart mx-1"></i></a>
                           </div> <!-- action-wrap.end -->
                       </figcaption>
@@ -82,22 +98,6 @@
      
           
       </div> <!-- row.// -->
-  </div>
-</section>
-<section class="features-section bg-light-grey">
-  
-  <div class="container px-4 py-5" id="icon-grid">
-   <div class="row py-5">
-    <div class="col-lg-6 align-self-center">
-      <p class="my-3">
-        <strong>Got birds to sell off?</strong><br>
-        Sign up as a vendor to sell your birds fast and maximize your profit.
-      </p>
-    </div>
-     <div class="col-lg-6">
-      <img src="{% static 'img/poultry-1.jpg' %}" alt="" class="img-fluid">
-     </div>
-   </div>
   </div>
 </section>
 <section class="features-section bg-light-grey">
